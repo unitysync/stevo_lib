@@ -13,10 +13,10 @@ local esx = GetResourceState('es_extended')
 local ox = GetResourceState('ox_core')
 
 if ox == 'started' then 
-    return error('[Stevo Library] ox_core is not supported by stevo_lib currently.')
+    lib.print.warn('ox_core support by stevo_lib currently is experimental. Use is not recommended.')
 end
 
-local framework = qbx == 'started' and 'qbx_core' or qb == 'started' and 'qb-core' or esx == 'started' and 'es_extended' or nil 
+local framework = qbx == 'started' and 'qbx_core' or qb == 'started' and 'qb-core' or esx == 'started' and 'es_extended' and ox == 'started' and 'ox_core' or nil 
 if not framework then 
     return error('[Stevo Library] Unable to find framework, This could be because you are using a modified framework name.') 
 end
